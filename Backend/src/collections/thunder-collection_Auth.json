@@ -1,0 +1,47 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Auth",
+    "dateExported": "2024-04-15T13:48:02.156Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "291db852-5194-4846-b290-cd5f2b2d2a72",
+            "colId": "70c62033-a261-446f-87e8-09072cf07ec1",
+            "containerId": "",
+            "name": "Register",
+            "url": "http://127.0.0.1:8080/twitch/v1/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-04-15T13:42:57.524Z",
+            "modified": "2024-04-15T13:42:57.524Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"Rodrigo\",\n  \"password\": \"123456\",\n  \"email\": \"rodrigo@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "621d1a2c-3fcc-4339-9836-b3b2c2e91b88",
+            "colId": "70c62033-a261-446f-87e8-09072cf07ec1",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://127.0.0.1:8080/twitch/v1/auth/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-15T13:43:25.451Z",
+            "modified": "2024-04-15T13:44:38.840Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\": \"123456\",\n  \"email\": \"elmer@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
