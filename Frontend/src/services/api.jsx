@@ -1,17 +1,28 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://127.0.0.1:3000/twitch/v1',
+    baseURL: 'http://127.0.0.1:8080/twitch/v1',
     timeout: 1000
 });
 
 export const login = async (data) => {
     try {
         return await apiClient.post('/auth/login', data);
-    } catch (e) {
+    } catch (error) {
         return{
             error: true,
-            e
+            error
+        }
+    }
+}
+
+export const register = async (data) => {
+    try {
+        return await apiClient.post('/auth/register', data);
+    } catch (error) {
+        return{
+            error: true,
+            error
         }
     }
 }
