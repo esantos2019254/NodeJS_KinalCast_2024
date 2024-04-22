@@ -8,10 +8,10 @@ const apiClient = axios.create({
 export const login = async (data) => {
     try {
         return await apiClient.post('/auth/login', data);
-    } catch (error) {
+    } catch (e) {
         return{
             error: true,
-            error
+            e
         }
     }
 }
@@ -19,10 +19,41 @@ export const login = async (data) => {
 export const register = async (data) => {
     try {
         return await apiClient.post('/auth/register', data);
-    } catch (error) {
+    } catch (e) {
         return{
             error: true,
-            error
+            e
         }
+    }
+}
+
+export const getChannels = async () => {
+    try {
+        return await apiClient.get('/channels');
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const getFollowedChannels = async () => {
+    try {
+        return await apiClient.get('/channels/followed');
+    } catch (e) {
+        checkResponseStatus(e)
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+const checkResponseStatus = (e) => {
+    const responseStatus = e?.response?.status
+    
+    if(responseStatus){
+        (responseStatus === 401 || responseStatus === 403) && logout()
     }
 }
