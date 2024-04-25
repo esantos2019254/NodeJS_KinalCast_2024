@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { getChannels as getChannelsRequest } from "../../services/api";
+import { getChannels as getChannelsRequest, getFollowedChannels } from "../../services/api";
 
 export const useChannels = () => {
     
@@ -30,7 +30,7 @@ export const useChannels = () => {
 
         setChannels({
             channels: channelsData.data.channels,
-            followedChannels: followedChannelsData.data.channels.filter(channel =>
+            followedChannels: channelsData.data.channels.filter(channel =>
                 followedChannelsData.data.followedChannels.includes(channel.id)
             )
         });
