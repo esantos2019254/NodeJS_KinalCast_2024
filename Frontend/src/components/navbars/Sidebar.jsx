@@ -10,7 +10,7 @@ export const Sidebar = ({channels}) => {
             {channels.map((channel) =>{
                 return(
                     <div  key={channel.id} className="sidebar-list-item">
-                        <span className="sidebar-list-username"></span>
+                        <span className="sidebar-list-username">{channel.username}</span>
                         <span className="sidebar-list-status"
                             style={{
                                 color: channel.isOnline ? 'green' : 'red'

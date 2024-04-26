@@ -38,17 +38,17 @@ const inputs = [
     }
 ]
 
-export const ChannelSettings = (settings, saveSettings) => {
+export const ChannelSettings = ({ settings, saveSettings }) => {
     const [formState, setFormState] = useState({
-        title: {
-            isValid: validateTitle(settings.title),
-            showError: false,
-            value: settings.title
-        },
         username: {
             isValid: validateUsername(settings.username),
             showError: false,
             value: settings.username
+        },
+        title: {
+            isValid: validateTitle(settings.title),
+            showError: false,
+            value: settings.title
         },
         avatarUrl: {
             isValid: validationAvatarUrl(settings.avatarUrl),
@@ -59,7 +59,7 @@ export const ChannelSettings = (settings, saveSettings) => {
             isValid: validateDescription(settings.description),
             showError: false,
             value: settings.description
-        }
+        },
     })
 
     const handleInputValueChange = (value, field) => {
@@ -91,16 +91,15 @@ export const ChannelSettings = (settings, saveSettings) => {
             default:
                 break;
         }
+        setFormState((prevState) => ({
+            ...prevState,
+            [field]: {
+                ...prevState[field],
+                isValid,
+                showError: !isValid
+            }
+        }))
     }
-
-    setFormState((prevState) => ({
-        ...prevState,
-        [field]: {
-            ...prevState[field],
-            isValid,
-            showError: !isValid
-        }
-    }))
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -116,26 +115,26 @@ export const ChannelSettings = (settings, saveSettings) => {
     const isSubmitButtonDisabled = !formState.username.isValid ||
         !formState.title.isValid ||
         !formState.avatarUrl.isValid ||
-        !formState.description.isValid;
+        !formState.description.isValid
 
     return (
-        <form className="setting-form">
-            {inputs.map((input) => {
+        <form className="settings-form">
+            {inputs.map((input) => (
                 <Input
                     key={input.field}
                     field={input.field}
-                    label={input.kabek}
-                    value={formState[input.field]}
+                    label={input.label}
+                    value={formState[input.field].value}
                     onChangeHandler={handleInputValueChange}
                     onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={input[input.field].value}
+                    showErrorMessage={formState[input.field].showError}
                     validationMessage={input.validationMessage}
                     type={input.type}
                     textarea={input.textarea}
                 />
-            })}
+            ))}
             <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
-                Actualiar Información
+                Actualizar Información
             </button>
         </form>
     )

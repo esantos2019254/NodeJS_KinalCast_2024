@@ -17,7 +17,7 @@ export const useChannelSettings = () => {
 
         setChannelSettings({
             username: response.data.username,
-            tittle: response.data.title,
+            title: response.data.title,
             description: response.data.description,
             avatarUrl: response.data.avatarUrl,
             streamKey: response.data.streamKey,

@@ -3,7 +3,7 @@ import { logout } from "../shared/hooks";
 
 const apiClient = axios.create({
     baseURL: 'http://127.0.0.1:8080/twitch/v1',
-    timeout: 1000
+    timeout: 5000
 });
 
 apiClient.interceptors.request.use(
@@ -66,7 +66,7 @@ export const getChannelSettings = async () => {
     }
 }
 
-export const updateChannelSettings = async () => {
+export const updateChannelSettings = async (data) => {
     try {
         return await apiClient.put('/settings/channel', data);
     } catch (e) {

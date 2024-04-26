@@ -47,18 +47,18 @@ export const Navbar = () => {
 
     return (
         <div className="nav-container">
-            <NavLogo />
-            <div className="nav-buttons-container">
-                <NavButton text="Browse" onClickHandler={handleNavigateToChannelsPage} />
-                {!isLogged ? (
-                    <NavButton text="Login" onClickHandler={handleNavigateToAuthPage} />
-                ) : (
-                    <div>
-                        <NavButton text="My Account" onClickHandler={handleNavigateToSettingPage} />
-                        <NavButton text="Logout" onClickHandler={handleLogout} />
-                    </div>
-                )}
-            </div>
+          <NavLogo />
+          <div className="nav-buttons-container">
+            <NavButton text="Browse" onClickHandler={handleNavigateToChannelsPage} />
+            {!isLogged ? (
+              <NavButton text="Login" onClickHandler={handleNavigateToAuthPage} />
+            ) : (
+              <div>
+                <NavButton text="My Account" onClickHandler={handleNavigateToSettingPage} />
+                <NavButton text="Logout" onClickHandler={handleLogout} />
+              </div>
+            )}
+          </div>
         </div>
-    )
+    );
 }

@@ -16,12 +16,22 @@
     "$oid": "661d2e9e13fd6ca90f08e7d5"
   },
   "email": "elmer@gmail.com",
-  "username": "Elmer",
+  "username": "ElmerR",
   "password": "$2a$10$YWs4WHbpLHKn2nlwO6FNk.VAPQzHSZbYNBJfjeM2Gp2Th7h3CCtNu",
   "channel": {
     "$oid": "661d2e9e13fd6ca90f08e7d3"
   },
-  "followedChannels": [],
+  "followedChannels": [
+    {
+      "$oid": "661d2e8d13fd6ca90f08e7ce"
+    },
+    {
+      "$oid": "661d2e9e13fd6ca90f08e7d3"
+    },
+    {
+      "$oid": "661d2ea913fd6ca90f08e7d8"
+    }
+  ],
   "__v": 0
 },
 {
